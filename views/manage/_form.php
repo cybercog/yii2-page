@@ -23,11 +23,11 @@ use krok\imperavi\widgets\ImperaviWidget;
         [
             'clientOptions' => [
                 'buttonSource' => true,
-                'fileUpload' => yii::$app->getUrlManager()->createUrl(['/cp/imperavi/manage/FileUpload']),
-                'fileManagerJson' => yii::$app->getUrlManager()->createUrl(['/cp/imperavi/manage/FileList']),
-                'imageUpload' => yii::$app->getUrlManager()->createUrl(['/cp/imperavi/manage/ImageUpload']),
-                'imageManagerJson' => yii::$app->getUrlManager()->createUrl(['/cp/imperavi/manage/ImageList']),
-                'definedLinks' => yii::$app->getUrlManager()->createUrl(['/cp/imperavi/manage/PageList']),
+                'fileUpload' => Yii::$app->getUrlManager()->createUrl(['/cp/imperavi/manage/FileUpload']),
+                'fileManagerJson' => Yii::$app->getUrlManager()->createUrl(['/cp/imperavi/manage/FileList']),
+                'imageUpload' => Yii::$app->getUrlManager()->createUrl(['/cp/imperavi/manage/ImageUpload']),
+                'imageManagerJson' => Yii::$app->getUrlManager()->createUrl(['/cp/imperavi/manage/ImageList']),
+                'definedLinks' => Yii::$app->getUrlManager()->createUrl(['/cp/imperavi/manage/PageList']),
                 'plugins' => [
                     'filemanager',
                     'imagemanager',
@@ -42,9 +42,13 @@ use krok\imperavi\widgets\ImperaviWidget;
         ]
     ) ?>
 
+    <?= $form->field($model, 'template')->dropDownList($templates) ?>
+
     <?= $form->field($model, 'description')->textInput(['maxlength' => 256]) ?>
 
     <?= $form->field($model, 'keywords')->textInput(['maxlength' => 256]) ?>
+
+    <?= $form->field($model, 'active')->dropDownList($active) ?>
 
     <div class="form-group">
         <?=

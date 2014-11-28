@@ -9,7 +9,7 @@ $this->title = Yii::t(
         'yii',
         'Update {modelClass}: ',
         [
-            'modelClass' => yii::t('page', 'Page'),
+            'modelClass' => Yii::t('page', 'Page'),
         ]
     ) . ' ' . $model->name;
 $this->params['breadcrumbs'][] = ['label' => Yii::t('page', 'Pages'), 'url' => ['index']];
@@ -25,6 +25,8 @@ $this->params['breadcrumbs'][] = Yii::t('yii', 'Update');
         '_form',
         [
             'model' => $model,
+            'active' => $active,
+            'templates' => $templates,
         ]
     ) ?>
 

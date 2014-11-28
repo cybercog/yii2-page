@@ -2,6 +2,7 @@
 
 use yii\helpers\Html;
 use yii\widgets\DetailView;
+use yii\helpers\ArrayHelper;
 
 /* @var $this yii\web\View */
 /* @var $model krok\page\models\Page */
@@ -38,6 +39,14 @@ $this->params['breadcrumbs'][] = $this->title;
                 'id',
                 'name',
                 'title',
+                [
+                    'label' => Yii::t('page', 'Template'),
+                    'value' => ArrayHelper::getValue($templates, $model->template),
+                ],
+                [
+                    'label' => Yii::t('page', 'Active'),
+                    'value' => ArrayHelper::getValue($active, $model->active),
+                ],
                 'text:html',
                 'description',
                 'keywords',

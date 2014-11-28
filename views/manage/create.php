@@ -9,7 +9,7 @@ $this->title = Yii::t(
     'yii',
     'Create {modelClass}',
     [
-        'modelClass' => yii::t('page', 'Page'),
+        'modelClass' => Yii::t('page', 'Page'),
     ]
 );
 $this->params['breadcrumbs'][] = ['label' => Yii::t('page', 'Pages'), 'url' => ['index']];
@@ -24,6 +24,8 @@ $this->params['breadcrumbs'][] = $this->title;
         '_form',
         [
             'model' => $model,
+            'active' => $active,
+            'templates' => $templates,
         ]
     ) ?>
 

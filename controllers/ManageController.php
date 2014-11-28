@@ -28,6 +28,8 @@ class ManageController extends Controller
             [
                 'searchModel' => $searchModel,
                 'dataProvider' => $dataProvider,
+                'active' => Page::getActiveList(),
+                'templates' => Page::getTemplates(),
             ]
         );
     }
@@ -43,6 +45,8 @@ class ManageController extends Controller
             'view',
             [
                 'model' => $this->findModel($id),
+                'active' => Page::getActiveList(),
+                'templates' => Page::getTemplates(),
             ]
         );
     }
@@ -65,6 +69,8 @@ class ManageController extends Controller
                 'create',
                 [
                     'model' => $model,
+                    'active' => Page::getActiveList(),
+                    'templates' => Page::getTemplates(),
                 ]
             );
         }
@@ -87,6 +93,8 @@ class ManageController extends Controller
                 'update',
                 [
                     'model' => $model,
+                    'active' => Page::getActiveList(),
+                    'templates' => Page::getTemplates(),
                 ]
             );
         }

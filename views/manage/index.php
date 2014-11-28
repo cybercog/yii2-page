@@ -2,6 +2,7 @@
 
 use yii\helpers\Html;
 use yii\grid\GridView;
+use yii\helpers\ArrayHelper;
 
 /* @var $this yii\web\View */
 /* @var $searchModel krok\page\models\PageSearch */
@@ -22,7 +23,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 'yii',
                 'Create {modelClass}',
                 [
-                    'modelClass' => yii::t('page', 'Page'),
+                    'modelClass' => Yii::t('page', 'Page'),
                 ]
             ),
             ['create'],
@@ -40,6 +41,22 @@ $this->params['breadcrumbs'][] = $this->title;
                 'id',
                 'name',
                 'title',
+                [
+                    'attribute' => 'template',
+                    'label' => Yii::t('page', 'Template'),
+                    'filter' => $templates,
+                    'value' => function ($model) use ($templates) {
+                            return ArrayHelper::getValue($templates, $model->template);
+                        }
+                ],
+                [
+                    'attribute' => 'active',
+                    'label' => Yii::t('page', 'Active'),
+                    'filter' => $active,
+                    'value' => function ($model) use ($active) {
+                            return ArrayHelper::getValue($active, $model->active);
+                        },
+                ],
                 ['class' => 'yii\grid\ActionColumn'],
             ],
         ]

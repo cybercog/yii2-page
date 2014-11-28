@@ -2,7 +2,7 @@
 
 namespace krok\page;
 
-use yii;
+use Yii;
 
 class Page extends \yii\base\Module implements \yii\base\BootstrapInterface
 {
@@ -17,6 +17,7 @@ class Page extends \yii\base\Module implements \yii\base\BootstrapInterface
 
         // custom initialization code goes here
         $this->registerTranslations();
+        $this->registerViewPath();
     }
 
     /**
@@ -26,19 +27,33 @@ class Page extends \yii\base\Module implements \yii\base\BootstrapInterface
     {
         $app->getUrlManager()->addRules(
             [
-                '<language:\w+\-\w+>/index/<route:.+>' => 'index/page',
+                '<language:\w+\-\w+>/cp/' . $this->id => 'cp/' . $this->id,
+                '<language:\w+\-\w+>/cp/' . $this->id . '/<controller:\w+>' => 'cp/' . $this->id . '/<controller>',
                 '<language:\w+\-\w+>/cp/' . $this->id . '/<controller:\w+>/<action:\w+>' => 'cp/' . $this->id . '/<controller>/<action>',
+            ]
+        );
+
+        $app->getUrlManager()->addRules(
+            [
+                '<language:\w+\-\w+>' => '/',
+                '<language:\w+\-\w+>/<route:.+>' => 'page/page/route',
+                '<route:.+>' => '/page/page/route',
             ],
-            false
+            true
         );
     }
 
     public function registerTranslations()
     {
-        yii::$app->i18n->translations[$this->id] = [
+        Yii::$app->i18n->translations[$this->id] = [
             'class' => 'yii\i18n\PhpMessageSource',
             'sourceLanguage' => 'en-US',
             'basePath' => '@krok/page/messages',
         ];
+    }
+
+    public function registerViewPath()
+    {
+        $this->setViewPath('@app/views');
     }
 }

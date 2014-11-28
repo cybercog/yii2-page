@@ -2,8 +2,15 @@
 
 namespace krok\page;
 
-class Manage extends \yii\base\Module
+use krok\cp\components\Module;
+
+class Manage extends Module
 {
+    /**
+     * @var array
+     */
+    public $templates = [];
+
     /**
      * @var string
      */
