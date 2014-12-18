@@ -7,20 +7,21 @@ class m141128_134600_page extends Migration
 {
     public function safeUp()
     {
+        $options = ($this->db->getDriverName() === 'mysql') ? 'ENGINE=InnoDB DEFAULT CHARSET=utf8' : null;
         $this->createTable(
             '{{%page}}',
             [
-                'id' => 'int(11) unsigned NOT NULL AUTO_INCREMENT PRIMARY KEY',
-                'name' => 'varchar(64) NOT NULL DEFAULT \'\'',
-                'title' => 'varchar(128) NOT NULL DEFAULT \'\'',
-                'text' => 'longtext NOT NULL',
-                'template' => 'varchar(32) NOT NULL DEFAULT \'\'',
-                'description' => 'varchar(256) NOT NULL DEFAULT \'\'',
-                'keywords' => 'varchar(256) NOT NULL DEFAULT \'\'',
-                'active' => 'enum(\'0\',\'1\') NOT NULL DEFAULT \'0\'',
-                'language' => 'varchar(8) NOT NULL DEFAULT \'\'',
+                'id' => Schema::TYPE_PK,
+                'name' => Schema::TYPE_STRING . '(64) NOT NULL DEFAULT \'\'',
+                'title' => Schema::TYPE_STRING . '(128) NOT NULL DEFAULT \'\'',
+                'text' => Schema::TYPE_TEXT . ' NOT NULL',
+                'template' => Schema::TYPE_STRING . '(32) NOT NULL DEFAULT \'\'',
+                'description' => Schema::TYPE_STRING . '(256) NOT NULL DEFAULT \'\'',
+                'keywords' => Schema::TYPE_STRING . '(256) NOT NULL DEFAULT \'\'',
+                'active' => Schema::TYPE_INTEGER . '(1) NOT NULL DEFAULT \'0\'',
+                'language' => Schema::TYPE_STRING . '(8) NOT NULL DEFAULT \'\'',
             ],
-            'ENGINE=InnoDB DEFAULT CHARSET=utf8'
+            $options
         );
 
         $this->createIndex('UNIQUE', '{{%page}}', ['name', 'language'], true);
