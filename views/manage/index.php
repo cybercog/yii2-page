@@ -7,6 +7,8 @@ use yii\helpers\ArrayHelper;
 /* @var $this yii\web\View */
 /* @var $searchModel krok\page\models\PageSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
+/* @var $templates [] */
+/* @var $active [] */
 
 $this->title = Yii::t('page', 'Pages');
 $this->params['breadcrumbs'][] = $this->title;

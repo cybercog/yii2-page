@@ -3,6 +3,7 @@
 namespace krok\page\models;
 
 use Yii;
+use krok\language\models\Language;
 
 /**
  * This is the model class for table "{{%page}}".
@@ -10,8 +11,11 @@ use Yii;
  * @property string $id
  * @property string $name
  * @property string $title
+ * @property string $text
+ * @property string $template
  * @property string $description
  * @property string $keywords
+ * @property int $active
  * @property string $language
  *
  * @property Language $language0
@@ -94,8 +98,8 @@ class Page extends \yii\db\ActiveRecord
     public static function getActiveList()
     {
         return [
-            '1' => Yii::t('page', 'Yes'),
-            '0' => Yii::t('page', 'No'),
+            1 => Yii::t('page', 'Yes'),
+            0 => Yii::t('page', 'No'),
         ];
     }
 }

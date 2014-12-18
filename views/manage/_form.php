@@ -7,6 +7,8 @@ use krok\imperavi\widgets\ImperaviWidget;
 /* @var $this yii\web\View */
 /* @var $model krok\page\models\Page */
 /* @var $form yii\widgets\ActiveForm */
+/* @var $templates [] */
+/* @var $active [] */
 ?>
 
 <div class="page-form">

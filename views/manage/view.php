@@ -6,6 +6,8 @@ use yii\helpers\ArrayHelper;
 
 /* @var $this yii\web\View */
 /* @var $model krok\page\models\Page */
+/* @var $templates [] */
+/* @var $active [] */
 
 $this->title = $model->name;
 $this->params['breadcrumbs'][] = ['label' => Yii::t('page', 'Pages'), 'url' => ['index']];

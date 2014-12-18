@@ -4,6 +4,8 @@ use yii\helpers\Html;
 
 /* @var $this yii\web\View */
 /* @var $model krok\page\models\Page */
+/* @var $templates [] */
+/* @var $active [] */
 
 $this->title = Yii::t(
         'yii',

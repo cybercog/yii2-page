@@ -13,9 +13,12 @@ class PageController extends Controller
     /**
      * @param string $route
      * @return string
+     * @throws \yii\web\NotFoundHttpException
      */
     public function actionRoute($route = 'index')
     {
+        /* @var $dp Page */
+
         $page = Page::parse($route);
 
         $dp = Page::find()->where(
