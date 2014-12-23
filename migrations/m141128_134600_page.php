@@ -28,7 +28,7 @@ class m141128_134600_page extends Migration
         $this->createIndex('language', '{{%page}}', ['language']);
         $this->createIndex('active', '{{%page}}', ['active']);
 
-        $this->addForeignKey('page_ibfk_1', '{{%page}}', 'language', '{{%language}}', 'iso', 'CASCADE', 'RESTRICT');
+        $this->addForeignKey('page_ibfk_1', '{{%page}}', 'language', '{{%language}}', 'iso', 'CASCADE', 'CASCADE');
     }
 
     public function safeDown()
