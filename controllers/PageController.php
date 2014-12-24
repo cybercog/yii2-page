@@ -23,7 +23,7 @@ class PageController extends Controller
 
         $dp = Page::find()->where(
             'name = :name AND active = :active AND language = :language',
-            [':name' => $page, ':active' => '1', ':language' => Language::getCurrent()]
+            [':name' => $page, ':active' => Page::ACTIVE_YES, ':language' => Language::getCurrent()]
         )->one();
 
         if ($dp === null) {

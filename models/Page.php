@@ -22,6 +22,9 @@ use krok\language\models\Language;
  */
 class Page extends \yii\db\ActiveRecord
 {
+    const ACTIVE_YES = 1;
+    const ACTIVE_NO = 0;
+
     /**
      * @inheritdoc
      */
@@ -98,8 +101,8 @@ class Page extends \yii\db\ActiveRecord
     public static function getActiveList()
     {
         return [
-            1 => Yii::t('page', 'Yes'),
-            0 => Yii::t('page', 'No'),
+            Page::ACTIVE_YES => Yii::t('page', 'Yes'),
+            Page::ACTIVE_NO => Yii::t('page', 'No'),
         ];
     }
 }
