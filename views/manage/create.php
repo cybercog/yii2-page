@@ -4,6 +4,7 @@ use yii\helpers\Html;
 
 /* @var $this yii\web\View */
 /* @var $model krok\page\models\Page */
+/* @var $layouts [] */
 /* @var $templates [] */
 /* @var $active [] */
 
@@ -26,8 +27,9 @@ $this->params['breadcrumbs'][] = $this->title;
         '_form',
         [
             'model' => $model,
-            'active' => $active,
+            'layouts' => $layouts,
             'templates' => $templates,
+            'active' => $active,
         ]
     ) ?>
 

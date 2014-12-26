@@ -6,6 +6,7 @@ use yii\helpers\ArrayHelper;
 
 /* @var $this yii\web\View */
 /* @var $model krok\page\models\Page */
+/* @var $layouts [] */
 /* @var $templates [] */
 /* @var $active [] */
 
@@ -41,6 +42,10 @@ $this->params['breadcrumbs'][] = $this->title;
                 'id',
                 'name',
                 'title',
+                [
+                    'label' => Yii::t('page', 'Layout'),
+                    'value' => ArrayHelper::getValue($layouts, $model->layout),
+                ],
                 [
                     'label' => Yii::t('page', 'Template'),
                     'value' => ArrayHelper::getValue($templates, $model->template),

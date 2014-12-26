@@ -28,8 +28,9 @@ class ManageController extends Controller
             [
                 'searchModel' => $searchModel,
                 'dataProvider' => $dataProvider,
-                'active' => Page::getActiveList(),
+                'layouts' => Page::getLayouts(),
                 'templates' => Page::getTemplates(),
+                'active' => Page::getActiveList(),
             ]
         );
     }
@@ -45,8 +46,9 @@ class ManageController extends Controller
             'view',
             [
                 'model' => $this->findModel($id),
-                'active' => Page::getActiveList(),
+                'layouts' => Page::getLayouts(),
                 'templates' => Page::getTemplates(),
+                'active' => Page::getActiveList(),
             ]
         );
     }
@@ -69,8 +71,9 @@ class ManageController extends Controller
                 'create',
                 [
                     'model' => $model,
-                    'active' => Page::getActiveList(),
+                    'layouts' => Page::getLayouts(),
                     'templates' => Page::getTemplates(),
+                    'active' => Page::getActiveList(),
                 ]
             );
         }
@@ -93,8 +96,9 @@ class ManageController extends Controller
                 'update',
                 [
                     'model' => $model,
-                    'active' => Page::getActiveList(),
+                    'layouts' => Page::getLayouts(),
                     'templates' => Page::getTemplates(),
+                    'active' => Page::getActiveList(),
                 ]
             );
         }

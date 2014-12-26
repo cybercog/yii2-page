@@ -12,6 +12,7 @@ use krok\language\models\Language;
  * @property string $name
  * @property string $title
  * @property string $text
+ * @property string $layout
  * @property string $template
  * @property string $description
  * @property string $keywords
@@ -42,6 +43,7 @@ class Page extends \yii\db\ActiveRecord
             [['name'], 'string', 'max' => 64],
             [['title'], 'string', 'max' => 128],
             [['text'], 'string'],
+            [['layout'], 'string', 'max' => 64],
             [['template'], 'string', 'max' => 64],
             [['description', 'keywords'], 'string', 'max' => 256],
             [['language'], 'string', 'max' => 8],
@@ -61,6 +63,7 @@ class Page extends \yii\db\ActiveRecord
             'name' => Yii::t('page', 'Name'),
             'title' => Yii::t('page', 'Title'),
             'text' => Yii::t('page', 'Text'),
+            'layout' => Yii::t('page', 'Layout'),
             'template' => Yii::t('page', 'Template'),
             'description' => Yii::t('page', 'Description'),
             'keywords' => Yii::t('page', 'Keywords'),
@@ -75,6 +78,14 @@ class Page extends \yii\db\ActiveRecord
     public function getLanguage()
     {
         return $this->hasOne(Language::className(), ['iso' => 'language']);
+    }
+
+    /**
+     * @return mixed
+     */
+    public static function getLayouts()
+    {
+        return Yii::$app->controller->module->layouts;
     }
 
     /**

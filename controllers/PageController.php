@@ -11,6 +11,11 @@ use krok\language\models\Language;
 class PageController extends Controller
 {
     /**
+     * @var string
+     */
+    public $layout = 'index';
+
+    /**
      * @param string $route
      * @return string
      * @throws \yii\web\NotFoundHttpException
@@ -29,9 +34,22 @@ class PageController extends Controller
         if ($dp === null) {
             throw new NotFoundHttpException(Yii::t('yii', 'Page not found.'));
         }
+        $this->registerLayout($dp->layout);
+
         return $this->render($dp->template, ['dp' => $dp]);
     }
 
+    /**
+     * @param $layout
+     */
+    protected function registerLayout($layout)
+    {
+        $this->layout = $layout;
+    }
+
+    /**
+     * @return array
+     */
     public function actions()
     {
         return [

@@ -9,6 +9,11 @@ class Manage extends Module
     /**
      * @var array
      */
+    public $layouts = [];
+
+    /**
+     * @var array
+     */
     public $templates = [];
 
     /**

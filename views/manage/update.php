@@ -4,6 +4,7 @@ use yii\helpers\Html;
 
 /* @var $this yii\web\View */
 /* @var $model krok\page\models\Page */
+/* @var $layouts [] */
 /* @var $templates [] */
 /* @var $active [] */
 
@@ -27,8 +28,9 @@ $this->params['breadcrumbs'][] = Yii::t('yii', 'Update');
         '_form',
         [
             'model' => $model,
-            'active' => $active,
+            'layouts' => $layouts,
             'templates' => $templates,
+            'active' => $active,
         ]
     ) ?>
 

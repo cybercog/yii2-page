@@ -7,6 +7,7 @@ use yii\helpers\ArrayHelper;
 /* @var $this yii\web\View */
 /* @var $searchModel krok\page\models\PageSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
+/* @var $layouts [] */
 /* @var $templates [] */
 /* @var $active [] */
 
@@ -44,12 +45,20 @@ $this->params['breadcrumbs'][] = $this->title;
                 'name',
                 'title',
                 [
+                    'attribute' => 'layout',
+                    'label' => Yii::t('page', 'Layout'),
+                    'filter' => $layouts,
+                    'value' => function ($model) use ($layouts) {
+                            return ArrayHelper::getValue($layouts, $model->layout);
+                        },
+                ],
+                [
                     'attribute' => 'template',
                     'label' => Yii::t('page', 'Template'),
                     'filter' => $templates,
                     'value' => function ($model) use ($templates) {
                             return ArrayHelper::getValue($templates, $model->template);
-                        }
+                        },
                 ],
                 [
                     'attribute' => 'active',

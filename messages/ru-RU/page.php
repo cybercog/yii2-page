@@ -5,6 +5,7 @@ return [
     'Pages' => 'Страницы',
     'Name' => 'Имя',
     'Title' => 'Заголовок',
+    'Layout' => 'Макет',
     'Template' => 'Шаблон',
     'Text' => 'Текст',
     'Description' => 'Описание',

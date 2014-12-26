@@ -7,6 +7,7 @@ use krok\imperavi\widgets\ImperaviWidget;
 /* @var $this yii\web\View */
 /* @var $model krok\page\models\Page */
 /* @var $form yii\widgets\ActiveForm */
+/* @var $layouts [] */
 /* @var $templates [] */
 /* @var $active [] */
 ?>
@@ -43,6 +44,8 @@ use krok\imperavi\widgets\ImperaviWidget;
             ],
         ]
     ) ?>
+
+    <?= $form->field($model, 'layout')->dropDownList($layouts) ?>
 
     <?= $form->field($model, 'template')->dropDownList($templates) ?>
 

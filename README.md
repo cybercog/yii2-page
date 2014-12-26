@@ -58,14 +58,27 @@ register modules
             'modules' => [
                 'page' => [
                     'class' => 'krok\page\Manage',
+                    'layouts' => [
+                        'index' => 'Главная',
+                        'common' => 'Типовая',
+                    ],
                     'templates' => [
                         'index' => 'Главная',
-                        'about' => 'О нас',
+                        'common' => 'Типовая',
                     ],
                 ],
             ],
         ],
     ],
+```
+
+@app\views\layouts
+
+```
+                    'layouts' => [
+                        'index' => 'Главная',
+                        'common' => 'Типовая',
+                    ],
 ```
 
 @app\views\page
