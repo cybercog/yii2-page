@@ -13,7 +13,7 @@ class PageController extends Controller
     /**
      * @var string
      */
-    public $layout = 'index';
+    public $layout = 'common';
 
     /**
      * @param string $route
